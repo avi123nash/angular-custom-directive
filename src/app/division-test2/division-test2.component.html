@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="col" *ngIf="totalRecords.length">
+        <h2>List of Technologies</h2>
+        <div class="listItems">
+            <ul class="list-group" *ngFor="let currentRecord of totalRecords">
+                <li class="list-group-item">
+                    {{currentRecord.techName}} , latest version is {{currentRecord.latestVersion}}
+                    and is most used in {{ currentRecord.MostUsingIn }}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col">
+        <form>
+            <h2>Add New</h2>
+            <div class="form-group">
+                <div class="row">
+                    <input type="text" class="form-control" name="techName" [(ngModel)]="techName"
+                        placeholder="Enter Technology Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <input type="text" class="form-control" name="latestVersion" [(ngModel)]="latestVersion"
+                        placeholder="Enter Latest Version">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <input type="text" class="form-control" name="MostUsingIn" [(ngModel)]="MostUsingIn"
+                        placeholder="Most Used Country">
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" title="Add" (click)="saveTechnologyInfo()">Add</button>
+        </form>
+    </div>
+</div>
